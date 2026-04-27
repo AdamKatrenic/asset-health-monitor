@@ -17,5 +17,22 @@ services:
     ports:
       - "6379:6379"
 
+  app:
+    build: .
+    container_name: ahm-app
+    ports:
+      - "3000:3000"
+    environment:
+      - PGHOST=postgres
+      - PGPORT=5432
+      - PGUSER=admin
+      - PGPASSWORD=password123
+      - PGDATABASE=asset_health
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - postgres
+      - redis
+
 volumes:
   postgres_data:
