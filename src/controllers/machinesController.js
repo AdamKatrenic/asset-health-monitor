@@ -11,7 +11,6 @@ const getAllMachines = async (req, res, next) => {
   }
 }
 
-
 const getMachineById = async (req, res, next) => {
   try {
     const { id } = req.params
